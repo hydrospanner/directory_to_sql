@@ -11,12 +11,12 @@ def get_db(search_path, database=':memory:'):
         search_path (str): parent folder path to start directory tree.
         database (str): path-like-object of database file
     """
-    if not os.isdir(search_path):
+    if not os.path.isdir(search_path):
         raise ValueError('The search path "%s" does not exist.' % search_path)
     conn = create_db(database)
     c = conn.cursor()
 
-    walk_inserts(c)
+    walk_inserts(c, search_path)
     add_folder_sizes(c)
     add_recursive_folder_sizes(c)
     add_folder_counts(c)
@@ -25,7 +25,7 @@ def get_db(search_path, database=':memory:'):
     return conn
 
 
-def walk_inserts(c):
+def walk_inserts(c, search_path):
     """OS walk through folders and files and insert them to database."""
     insert_folders = '''
         INSERT INTO folders
