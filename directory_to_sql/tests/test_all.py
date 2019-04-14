@@ -22,7 +22,9 @@ def create_file(file_path, size_bytes):
 
 class CreateFileSizeTest(unittest.TestCase):
     """Test the create file size function."""
+
     def test_file_sizes(self):
+        """Crete files of different sizes and test against os.path.getsize()."""
         sizes = [1, 10, 100, 1000]
         for file_size in sizes:
             file_path = os.path.join(TEST_PATH, 'test.txt')
@@ -50,7 +52,8 @@ class DirDBTest(unittest.TestCase):
 
     def test_file_count(self):
         """Count files"""
-        c = get_db(self.top_file_tree).cursor()
+        db = get_db(self.top_file_tree)
+        c = db.cursor()
         sql =  '''
             SELECT COUNT(*)
             FROM files
@@ -62,7 +65,8 @@ class DirDBTest(unittest.TestCase):
 
     def test_r_folder_sizes(self):
         """Check recursive folder sizes."""
-        c = get_db(self.top_file_tree).cursor()
+        db = get_db(self.top_file_tree)
+        c = db.cursor()
         sql =  '''
             SELECT folder_size_r
             FROM folders
@@ -86,4 +90,4 @@ class DirDBTest(unittest.TestCase):
         shutil.rmtree(create_path)
 
 
-unittest.main()
+# unittest.main()
