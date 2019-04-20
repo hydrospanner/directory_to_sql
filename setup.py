@@ -13,7 +13,7 @@ setup(name='directory_to_sql',
       license='MIT',
       packages=['directory_to_sql'],
       install_requires=[
-          'db-sqlite3',
+          'pysqlite',
       ],
       zip_safe=False,
       test_suite='nose.collector',
