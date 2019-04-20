@@ -9,5 +9,6 @@ python:
 install:
   - python setup.py install
   - pip install coverage
+services: sqlite3
 script:
   - nosetests -v --with-coverage
