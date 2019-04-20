@@ -2,7 +2,7 @@ from setuptools import setup
 
 
 with open('README.rst', 'r') as file:
-      long_description = file.read()
+    long_description = file.read()
 
 setup(name='directory_to_sql',
       version='0.1.1',
@@ -13,6 +13,7 @@ setup(name='directory_to_sql',
       license='MIT',
       packages=['directory_to_sql'],
       install_requires=[
+          'pandas',
       ],
       zip_safe=False,
       test_suite='nose.collector',
