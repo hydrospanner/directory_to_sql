@@ -1,5 +1,6 @@
 """Populate database with file directory information."""
 import os
+import logging
 
 from .create_db import create_db
 
@@ -56,8 +57,8 @@ def walk_inserts(c, search_path):
         insert_files(filenames, dirpath, c, parent_folder_id)
 
         if folder_id % 10 == 0:
-            print('\rProcessed %s folders.' % folder_id, end='\r')
-    print()
+            logging.info('Processed %s folders.' % folder_id)
+    logging.info('Walk complete.')
 
 
 def insert_files(filenames, dirpath, c, parent_folder_id):
