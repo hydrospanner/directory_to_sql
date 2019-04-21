@@ -1,4 +1,7 @@
-"""Example queries to find large folders and files."""
+"""Example queries to find large folders and files, and print the results.
+
+Pandas is used for readability.
+"""
 import sqlite3
 import pandas as pd
 
@@ -14,7 +17,7 @@ def top_10(conn):
         FROM files
         '''
     c.execute(sql)
-    print(c.fetchone())
+    print('File count: %s' % c.fetchone())
 
     # Top 10 files by size
     print('Top 10 files by size')
@@ -30,8 +33,7 @@ def top_10(conn):
         ORDER BY size DESC
     '''
     c.execute(sql)
-    for r in c.fetchall():
-        print(r)
+    print(pd.read_sql(sql, conn))
 
     sql = '''
         SELECT path, folder_size
