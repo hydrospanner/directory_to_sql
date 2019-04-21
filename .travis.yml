@@ -9,4 +9,4 @@ install:
   - pip install coverage
 services: sqlite3
 script:
-  - nosetests -v --with-coverage
+  - nosetests -v --with-coverage --cover-package=directory_to_sql
