@@ -200,8 +200,3 @@ def get_file_modification_dt(file_path):
        return os.path.getmtime(file_path)
     except (PermissionError, OSError):
         return
-
-
-if __name__ == '__main__':
-    search_path = '\\'
-    get_db(search_path, 'db.db')
