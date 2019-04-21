@@ -5,7 +5,7 @@ Get a SQLite database of a directory tree.
 
 .. image:: https://travis-ci.com/hydrospanner/directory_to_sql.svg?branch=master
 
-The data retrived includes:
+The data retrieved includes:
 
 - File sizes and modification date.
 - Folder sizes and file counts.
