@@ -1,6 +1,7 @@
 dist: xenial
 language: python
 python:
+  - 2.7
   - 3.7
 before_install:
   - sudo apt-get install sqlite
@@ -9,4 +10,4 @@ install:
   - pip install coverage
 services: sqlite3
 script:
-  - nosetests -v --with-coverage
+  - nosetests -v --with-coverage --cover-package=directory_to_sql
