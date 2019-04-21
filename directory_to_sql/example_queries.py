@@ -4,7 +4,7 @@ import pandas as pd
 
 
 def top_10(conn):
-    """Get various top 10s from tables."""
+    """Print various top 10s from tables."""
     c = conn.cursor()
 
     # Count files
@@ -62,30 +62,3 @@ def top_10(conn):
     c.execute(sql)
     print('Folders by subfolder ct r')
     print(pd.read_sql(sql, conn))
-
-
-def idk():
-    # Update folder value by value of sum agg files table.
-    sql = '''
-        UPDATE 
-            folders
-        SET
-        folders.folder_size = (
-            SELECT SUM(size) as size
-            FROM files
-            WHERE files.parent_folder = folders.folder_id
-            GROUP BY parent_folder
-        )
-        WHERE
-            EXISTS (
-                SELECT * 
-                FROM files
-                WHERE files.parent_folder = folders.folder_id
-            );
-    '''
-    c.execute(sql)
-
-
-if __name__ == '__main__':
-    conn = sqlite3.connect('db.db')
-    top_10(conn)
