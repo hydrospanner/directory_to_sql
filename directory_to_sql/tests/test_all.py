@@ -23,16 +23,23 @@ def create_file(file_path, size_bytes):
 class CreateFileSizeTest(unittest.TestCase):
     """Test the create file size function."""
 
+    def setUp(self):
+        """Make the directory."""
+        os.mkdir(TEST_PATH)
+
     def test_file_sizes(self):
-        """Crete files of different sizes and test against os.path.getsize()."""
+        """Create files of different sizes and test against actual size."""
         sizes = [1, 10, 100, 1000]
         for file_size in sizes:
-            file_path = os.path.join(TEST_PATH, 'test.txt')
+            file_path = os.path.join(PARENT_PATH, 'test.txt')
             create_file(file_path, file_size)
             actual_size = os.path.getsize(file_path)
             os.remove(file_path)
             self.assertEqual(file_size, actual_size)
 
+    def tearDown(self):
+        """Delete the directory."""
+        os.rmdir(TEST_PATH)
 
 class DirDBTest(unittest.TestCase):
     top_file_tree = os.path.join(TEST_PATH, '1')
@@ -88,6 +95,3 @@ class DirDBTest(unittest.TestCase):
         """Delete the directory tree."""
         create_path = os.path.join(TEST_PATH, '1')
         shutil.rmtree(create_path)
-
-
-# unittest.main()
