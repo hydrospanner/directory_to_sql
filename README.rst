@@ -13,5 +13,5 @@ To create the database and execute some example queries
 listing largest files and folders::
 
   from directory_to_sql import get_db, top_10
-  conn = get_db('db.db')
+  conn = get_db('\\', 'db.db')
   top_10(conn)
