@@ -5,7 +5,7 @@ with open('README.rst', 'r') as file:
     long_description = file.read()
 
 setup(name='directory_to_sql',
-      version='0.1.1',
+      version='0.1.2',
       description='Get a SQL database of file directory data.',
       long_description=long_description,
       url='http://github.com/hydrospanner/directory_to_sql',
