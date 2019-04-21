@@ -15,13 +15,13 @@ To create the database and execute some example queries
 listing largest files and folders::
 
   from directory_to_sql import get_db, top_10
-  conn = get_db('\\', 'db.db')
+  conn = get_db(search_path='\\', database='db.db')
   top_10(conn)
 
 Where to get it
 ------------------
 The latest released version is available on the `Python Package Index
-   <https://pypi.org/project/directory-to-sql/>`_.
+<https://pypi.org/project/directory-to-sql/>`_.
 
 ::
 
