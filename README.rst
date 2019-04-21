@@ -3,6 +3,8 @@ directory_to_sql
 
 Get a SQLite database of a directory tree.
 
+.. image:: https://travis-ci.com/hydrospanner/directory_to_sql.svg?branch=master
+
 - Get file sizes and modification date.
 - Get folder sizes and file counts.
 - Get recursive (including sub-folders) folder sizes and file counts.
