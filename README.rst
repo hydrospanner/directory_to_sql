@@ -5,9 +5,11 @@ Get a SQLite database of a directory tree.
 
 .. image:: https://travis-ci.com/hydrospanner/directory_to_sql.svg?branch=master
 
-- Get file sizes and modification date.
-- Get folder sizes and file counts.
-- Get recursive (including sub-folders) folder sizes and file counts.
+The data retrived includes:
+
+- File sizes and modification date.
+- Folder sizes and file counts.
+- Recursive (including sub-folders) folder sizes and file counts.
 
 To create the database and execute some example queries
 listing largest files and folders::
